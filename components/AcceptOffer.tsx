@@ -55,7 +55,6 @@ const AcceptOffer: FC<Props> = ({
   const [open, setOpen] = useState(false)
   const { dispatch } = useContext(GlobalContext)
 
-  // Data from props
   const [collection, setCollection] = useState<Collection>()
   const [details, setDetails] = useState<SWRResponse<Details, any> | Details>()
 
@@ -195,18 +194,17 @@ const AcceptOffer: FC<Props> = ({
 
             execute(tokenString, taker)
           }}
-          //className="btn-primary-outline w-full dark:text-white"
         >
           {children ? (
             children
           ) : (
-            <button className="btn-primary-outline w-full dark:text-white">
+            <div className="btn-primary-outline w-full dark:text-white">
               {waitingTx ? (
                 <CgSpinner className="h-4 w-4 animate-spin" />
               ) : (
                 'Accept Offer'
               )}
-            </button>
+            </div>
           )}
         </Dialog.Trigger>
       )}
